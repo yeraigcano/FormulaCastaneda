@@ -1,0 +1,454 @@
+
+<html lang="es">
+<head>
+    <!-- HTML Meta Tags -->
+    <!-- Define the character set for the document. / Define la codificación de caracteres para el documento. -->
+    <meta charset="UTF-8">
+    <!-- Set the viewport for responsive design, making sure the website looks good on all devices. -->
+    <!-- Configura el viewport para diseño responsive, asegurando que la web se vea bien en todos los dispositivos. -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Page title for the browser tab. / Título de la página para la pestaña del navegador. -->
+    <title>La Fórmula de Ahorro de Raúl Castañeda</title>
+    
+    <!-- External CSS & JS Libraries -->
+    <!-- Link to Tailwind CSS framework for styling. / Enlace al framework de CSS Tailwind para el estilo. -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Link to Chart.js library for creating the dynamic chart. / Enlace a la librería Chart.js para crear el gráfico dinámico. -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <!-- Google Fonts for a modern, clean look. / Fuentes de Google para un aspecto moderno y limpio. -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Custom CSS Styles -->
+    <!-- Custom styles to complement Tailwind and manage specific behaviors. -->
+    <!-- Estilos personalizados para complementar Tailwind y gestionar comportamientos específicos. -->
+    <style>
+        body {
+            font-family: 'Inter', sans-serif; /* Use the Inter font. / Usa la fuente Inter. */
+            background-color: #FDFBF8; /* Light, warm background color. / Color de fondo claro y cálido. */
+            color: #3D3B38; /* Dark, warm text color. / Color de texto oscuro y cálido. */
+        }
+        .tab-active {
+            border-color: #A4826D; /* Highlight color for the active tab. / Color de resaltado para la pestaña activa. */
+            color: #A4826D;
+            font-weight: 600; /* Bolder font for the active tab. / Fuente más negrita para la pestaña activa. */
+        }
+        .card {
+            background-color: #FFFFFF; /* White card background. / Fondo de tarjeta blanco. */
+            border: 1px solid #EAE6E1; /* Subtle border. / Borde sutil. */
+            border-radius: 0.75rem; /* Rounded corners. / Esquinas redondeadas. */
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03); /* Soft shadow. / Sombra suave. */
+            transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out; /* Smooth hover transition. / Transición suave al pasar el ratón. */
+        }
+        .card:hover {
+            transform: translateY(-4px); /* Lift the card slightly on hover. / Levanta la tarjeta ligeramente al pasar el ratón. */
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.07), 0 4px 6px -2px rgba(0, 0, 0, 0.04); /* More pronounced shadow on hover. / Sombra más pronunciada al pasar el ratón. */
+        }
+        .chart-container {
+            position: relative;
+            width: 100%;
+            max-width: 400px;
+            margin-left: auto;
+            margin-right: auto;
+            height: auto;
+            min-height: 300px;
+        }
+        @media (min-width: 768px) {
+            .chart-container {
+                min-height: 350px;
+            }
+        }
+    </style>
+</head>
+
+<body class="antialiased">
+
+    <!-- Header Section -->
+    <!-- Sticky header for navigation. / Encabezado fijo para la navegación. -->
+    <header class="bg-white/80 backdrop-blur-md sticky top-0 z-10 border-b border-gray-200">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-16">
+                <!-- Branding or logo area. / Área de marca o logo. -->
+                <div class="flex-shrink-0">
+                    <h1 class="text-xl font-bold text-[#A4826D]">Fórmula Castañeda</h1>
+                </div>
+                <!-- Navigation menu for desktop. / Menú de navegación para escritorio. -->
+                <nav class="hidden md:block">
+                    <div class="ml-10 flex items-baseline space-x-4">
+                        <!-- Navigation links. / Enlaces de navegación. -->
+                        <a href="#formula" class="text-gray-600 hover:text-[#A4826D] px-3 py-2 rounded-md text-sm font-medium">La Fórmula</a>
+                        <a href="#filosofia" class="text-gray-600 hover:text-[#A4826D] px-3 py-2 rounded-md text-sm font-medium">La Filosofía</a>
+                        <a href="#comparativa" class="text-gray-600 hover:text-[#A4826D] px-3 py-2 rounded-md text-sm font-medium">Comparativa</a>
+                        <a href="#el-autor" class="text-gray-600 hover:text-[#A4826D] px-3 py-2 rounded-md text-sm font-medium">El Autor</a>
+                    </div>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content Area -->
+    <!-- The main container for all sections. / Contenedor principal para todas las secciones. -->
+    <main class="container mx-auto px-4 sm:px-6 lg:px-8 py-8 md:py-12">
+
+        <!-- Hero Section -->
+        <!-- Introductory section with a headline and description. / Sección introductoria con un titular y una descripción. -->
+        <section id="hero" class="text-center mb-16">
+            <h2 class="text-4xl md:text-5xl font-extrabold tracking-tight mb-4">Domina tu Dinero, Conquista tu Miedo</h2>
+            <p class="max-w-3xl mx-auto text-lg text-gray-600">
+                Una exploración interactiva de la "Fórmula de Ahorro" de Raúl Castañeda, un método forjado en la adversidad para construir una verdadera seguridad financiera.
+            </p>
+        </section>
+
+        <!-- Formula Calculator Section -->
+        <!-- Interactive section where users input their income and see the results. -->
+        <!-- Sección interactiva donde los usuarios introducen sus ingresos y ven los resultados. -->
+        <section id="formula" class="mb-16 scroll-mt-20">
+            <div class="text-center mb-10">
+                <h3 class="text-3xl font-bold text-[#A4826D]">La Fórmula en Acción</h3>
+                <p class="mt-2 text-gray-600 max-w-2xl mx-auto">Ingresa tus ingresos mensuales para ver cómo se distribuye tu dinero según el método Castañeda. Esta herramienta te permite visualizar y entender los tres pilares fundamentales de su estrategia financiera.</p>
+            </div>
+            <!-- Grid layout for the input form and the chart. / Diseño de cuadrícula para el formulario de entrada y el gráfico. -->
+            <div class="grid md:grid-cols-2 gap-8 items-center">
+                <div class="card p-6">
+                    <!-- Text input for monthly income. / Campo de texto para los ingresos mensuales. -->
+                    <label for="income-input" class="block text-lg font-semibold mb-2 text-center">Ingresa tu Ingreso Mensual Neto</label>
+                    <input id="income-input" type="text" value="1500" placeholder="Ej: 2150.75" class="w-full px-4 py-2 border border-gray-300 rounded-lg text-center font-bold">
+                    
+                    <!-- Display areas for the calculated amounts. / Áreas para mostrar las cantidades calculadas. -->
+                    <div class="mt-8 space-y-4">
+                        <div class="flex justify-between items-center p-4 rounded-lg bg-green-50 border border-green-200">
+                            <div>
+                                <p class="font-bold text-green-800">1. Diezmo (10%)</p>
+                                <p class="text-sm text-green-600">Patrimonio intocable para tu seguridad.</p>
+                            </div>
+                            <p id="diezmo-amount" class="text-xl font-bold text-green-800">€150.00</p>
+                        </div>
+                        <div class="flex justify-between items-center p-4 rounded-lg bg-blue-50 border border-blue-200">
+                            <div>
+                                <p class="font-bold text-blue-800">2. Ahorro (20%)</p>
+                                <p class="text-sm text-blue-600">Para metas y proyectos (mínimo 1 año).</p>
+                            </div>
+                            <p id="ahorro-amount" class="text-xl font-bold text-blue-800">€300.00</p>
+                        </div>
+                        <div class="flex justify-between items-center p-4 rounded-lg bg-yellow-50 border border-yellow-200">
+                            <div>
+                                <p class="font-bold text-yellow-800">3. Gastos (70%)</p>
+                                <p class="text-sm text-yellow-600">Para vivir y, al final, pagar deudas.</p>
+                            </div>
+                            <p id="gastos-amount" class="text-xl font-bold text-yellow-800">€1050.00</p>
+                        </div>
+                    </div>
+                </div>
+                <!-- Canvas element for the Chart.js doughnut chart. / Elemento canvas para el gráfico de dona de Chart.js. -->
+                <div class="chart-container">
+                    <canvas id="incomeChart"></canvas>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Philosophy Section -->
+        <!-- Tabbed content to explain the philosophical principles of the formula. -->
+        <!-- Contenido con pestañas para explicar los principios filosóficos de la fórmula. -->
+        <section id="filosofia" class="mb-16 scroll-mt-20">
+            <div class="text-center mb-10">
+                <h3 class="text-3xl font-bold text-[#A4826D]">La Filosofía Detrás de los Números</h3>
+                <p class="mt-2 text-gray-600 max-w-2xl mx-auto">La fórmula es más que matemáticas; es una mentalidad. Se basa en principios psicológicos diseñados para reconfigurar tu relación con el dinero y eliminar el miedo a la ruina. Explora los tres pilares de esta filosofía.</p>
+            </div>
+            
+            <div class="max-w-4xl mx-auto">
+                <div class="border-b border-gray-200 mb-6">
+                    <!-- Navigation for the tabs. / Navegación para las pestañas. -->
+                    <nav class="-mb-px flex flex-wrap justify-center space-x-2 sm:space-x-6" aria-label="Tabs">
+                        <button class="philosophy-tab whitespace-nowrap py-4 px-1 border-b-2 font-medium text-sm tab-active" data-content="content-paz">
+                            Paz Interior y Seguridad
+                        </button>
+                        <button class="philosophy-tab whitespace-nowrap py-4 px-1 border-b-2 font-medium text-sm text-gray-500 hover:text-gray-700 hover:border-gray-300" data-content="content-deuda">
+                            Rechazo Radical a la Deuda
+                        </button>
+                        <button class="philosophy-tab whitespace-nowrap py-4 px-1 border-b-2 font-medium text-sm text-gray-500 hover:text-gray-700 hover:border-gray-300" data-content="content-resiliencia">
+                            Resiliencia Financiera
+                        </button>
+                    </nav>
+                </div>
+
+                <!-- Content that changes based on the selected tab. -->
+                <!-- Contenido que cambia según la pestaña seleccionada. -->
+                <div id="philosophy-content" class="card p-6 md:p-8">
+                    <div id="content-paz">
+                        <h4 class="text-2xl font-bold mb-4">El Valor de la Tranquilidad</h4>
+                        <p class="text-gray-600 mb-4">El objetivo principal del "diezmo" del 10% no es la rentabilidad, sino generar una profunda <span class="font-semibold">"paz interior"</span>. Este fondo patrimonial intocable actúa como un ancla emocional y psicológica. Saber que existe un colchón de seguridad inamovible te permite tomar decisiones sin el miedo paralizante a la quiebra. Castañeda también defiende el uso de <span class="font-semibold">dinero en efectivo</span>, argumentando que el acto físico de ver disminuir los billetes crea una mayor conciencia del gasto, a diferencia de la naturaleza "anestesiante" del pago con tarjeta.</p>
+                    </div>
+                    <div id="content-deuda" class="hidden">
+                        <h4 class="text-2xl font-bold mb-4">La Deuda como una Trampa</h4>
+                        <p class="text-gray-600 mb-4">La postura de Castañeda es inflexible: la deuda de consumo es una trampa que te mantiene "de rodillas" ante las entidades financieras. Argumenta que endeudarse para aparentar un estatus es el camino más rápido a la ruina. Su método prioriza cubrir necesidades básicas y construir patrimonio <span class="font-semibold">antes</span> de pagar deudas. Esta controvertida idea subraya su creencia de que primero debes asegurarte a ti mismo y tu futuro. La única deuda que considera aceptable es la hipotecaria para la vivienda principal.</p>
+                    </div>
+                    <div id="content-resiliencia" class="hidden">
+                        <h4 class="text-2xl font-bold mb-4">Aprender a Levantarse</h4>
+                        <p class="text-gray-600 mb-4">El lema del libro, "No me da miedo arruinarme", es la culminación de su filosofía. La fórmula no es para evitar caer, sino para tener la certeza de que <span class="font-semibold">sabes cómo levantarte</span>. Al crear un sistema disciplinado, acumular un patrimonio intocable y vivir por debajo de tus posibilidades, desarrollas una resiliencia que te libera del miedo. Esta seguridad mental es, para Castañeda, la verdadera riqueza y el pilar para poder afrontar riesgos y "convertir tragedias en triunfos".</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Comparison Section -->
+        <!-- Table comparing the Castañeda formula with the 50/30/20 rule. -->
+        <!-- Tabla comparando la fórmula de Castañeda con la regla 50/30/20. -->
+        <section id="comparativa" class="mb-16 scroll-mt-20">
+            <div class="text-center mb-10">
+                <h3 class="text-3xl font-bold text-[#A4826D]">Fórmula Castañeda vs. Regla 50/30/20</h3>
+                <p class="mt-2 text-gray-600 max-w-2xl mx-auto">¿Cómo se compara el estricto método de Castañeda con uno de los modelos de finanzas personales más populares? Esta tabla resalta las diferencias clave en filosofía, flexibilidad y enfoque, ayudándote a decidir qué principios se adaptan mejor a tu vida.</p>
+            </div>
+
+            <div class="max-w-5xl mx-auto overflow-x-auto">
+                <div class="inline-block min-w-full align-middle">
+                    <div class="card overflow-hidden">
+                        <table class="min-w-full divide-y divide-gray-200">
+                            <thead class="bg-gray-50">
+                                <tr>
+                                    <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Característica</th>
+                                    <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Fórmula Castañeda</th>
+                                    <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Regla 50/30/20</th>
+                                </tr>
+                            </thead>
+                            <tbody class="bg-white divide-y divide-gray-200">
+                                <!-- Table rows with comparative data. / Filas de la tabla con datos comparativos. -->
+                                <tr>
+                                    <td class="px-6 py-4 whitespace-nowrap font-medium">Filosofía Principal</td>
+                                    <td class="px-6 py-4">Supervivencia y resiliencia. Protección extrema contra la ruina.</td>
+                                    <td class="px-6 py-4">Equilibrio y gestión. Busca una vida financieramente estable y disfrutable.</td>
+                                </tr>
+                                <tr>
+                                    <td class="px-6 py-4 whitespace-nowrap font-medium">Distribución</td>
+                                    <td class="px-6 py-4">10% Diezmo (Patrimonio), 20% Ahorro, 70% Gastos.</td>
+                                    <td class="px-6 py-4">50% Necesidades, 30% Deseos, 20% Ahorro y Deuda.</td>
+                                </tr>
+                                <tr>
+                                    <td class="px-6 py-4 whitespace-nowrap font-medium">Visión de la Deuda</td>
+                                    <td class="px-6 py-4">Radicalmente negativa. Se paga al final, después de cubrir todo lo demás.</td>
+                                    <td class="px-6 py-4">Se gestiona proactivamente dentro del 20% de ahorro.</td>
+                                </tr>
+                                <tr>
+                                    <td class="px-6 py-4 whitespace-nowrap font-medium">Flexibilidad</td>
+                                    <td class="px-6 py-4">Muy rígida y disciplinaria. "Sin medias tintas".</td>
+                                    <td class="px-6 py-4">Flexible y adaptable. Sirve como una guía que se puede ajustar.</td>
+                                </tr>
+                                 <tr>
+                                    <td class="px-6 py-4 whitespace-nowrap font-medium">Fortaleza Clave</td>
+                                    <td class="px-6 py-4">Crea una poderosa seguridad psicológica a través del patrimonio intocable.</td>
+                                    <td class="px-6 py-4">Fácil de entender y aplicar para una amplia variedad de personas y ingresos.</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Author Section -->
+        <!-- Information about the author, Raúl Castañeda. / Información sobre el autor, Raúl Castañeda. -->
+        <section id="el-autor" class="scroll-mt-20 card bg-amber-50 border-amber-200 p-8">
+            <div class="grid md:grid-cols-3 gap-8 items-center">
+                <div class="md:col-span-2">
+                    <h3 class="text-3xl font-bold text-[#A4826D] mb-4">El Hombre Detrás de la Fórmula</h3>
+                    <p class="text-gray-700 mb-4">La autoridad de Raúl Castañeda no proviene de títulos académicos, sino de la experiencia cruda. Un empresario hecho a sí mismo que lo perdió todo por una estafa, viéndose obligado a vivir en un almacén. Esta quiebra fue su "tragedia fundacional".</p>
+                    <p class="text-gray-700">Su reconstrucción comenzó al descubrir una ley anti-usura de 1908, que usó para fundar un bufete de abogados y combatir al sistema que, según él, lo había arruinado. Su método no es teoría; es el manual de supervivencia que él mismo utilizó para "convertir su tragedia en un triunfo" y volverse rico de nuevo.</p>
+                </div>
+                <!-- Emojis to visually represent the author's story. -->
+                <!-- Emojis para representar visualmente la historia del autor. -->
+                <div class="text-5xl md:text-7xl text-center text-amber-500 opacity-80">
+                    <span>&#x1F4AA;</span> <!-- Strong arm emoji -->
+                    <span>&#x1F4C8;</span> <!-- Chart increasing emoji -->
+                    <span>&#x1F512;</span> <!-- Lock emoji -->
+                </div>
+            </div>
+        </section>
+
+    </main>
+    
+    <!-- Footer Section -->
+    <!-- Contains copyright and the important disclaimer. / Contiene el copyright y el aviso legal importante. -->
+    <footer class="bg-white border-t border-gray-200 mt-16">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8 py-6 text-center text-gray-500">
+            <p>&copy; 2025 Aplicación Interactiva de la Fórmula Castañeda. Creado con fines educativos.</p>
+            <p class="mt-2 text-sm text-gray-400">Esta fórmula es una estrategia de administración económica, no una fórmula mágica para hacerse rico. Su objetivo es ayudarte a administrar tu dinero para construir seguridad y, a largo plazo, evitar la ruina financiera.</p>
+        </div>
+    </footer>
+
+    <!-- JavaScript for Interactivity -->
+    <!-- Scripts to handle the interactive elements of the page. -->
+    <!-- Scripts para manejar los elementos interactivos de la página. -->
+    <script>
+        // Wait for the entire page to load before running the script.
+        // Espera a que toda la página se cargue antes de ejecutar el script.
+        document.addEventListener('DOMContentLoaded', function () {
+            // Get references to HTML elements.
+            // Obtener referencias a los elementos HTML.
+            const incomeInput = document.getElementById('income-input');
+            const diezmoAmount = document.getElementById('diezmo-amount');
+            const ahorroAmount = document.getElementById('ahorro-amount');
+            const gastosAmount = document.getElementById('gastos-amount');
+
+            const chartCanvas = document.getElementById('incomeChart');
+            let incomeChart; // Variable to hold the Chart.js instance. / Variable para guardar la instancia de Chart.js.
+
+            // Function to format a number as a currency string.
+            // Función para formatear un número como una cadena de moneda.
+            function formatCurrency(value) {
+                return new Intl.NumberFormat('es-ES', { style: 'currency', currency: 'EUR' }).format(value);
+            }
+
+            // Function to calculate and update all values and the chart.
+            // Función para calcular y actualizar todos los valores y el gráfico.
+            function updateValues(income) {
+                // Validate if the input is a number and not negative.
+                // Valida si la entrada es un número y no es negativa.
+                if (isNaN(income) || income < 0) {
+                    income = 0;
+                }
+                const diezmo = income * 0.10;
+                const ahorro = income * 0.20;
+                const gastos = income * 0.70;
+
+                // Update the text content of the display elements.
+                // Actualiza el contenido de texto de los elementos de visualización.
+                diezmoAmount.textContent = formatCurrency(diezmo);
+                ahorroAmount.textContent = formatCurrency(ahorro);
+                gastosAmount.textContent = formatCurrency(gastos);
+
+                // Call the function to update the chart data.
+                // Llama a la función para actualizar los datos del gráfico.
+                updateChart(diezmo, ahorro, gastos);
+            }
+
+            // Function to create the initial Chart.js doughnut chart.
+            // Función para crear el gráfico de dona inicial de Chart.js.
+            function createChart() {
+                const ctx = chartCanvas.getContext('2d');
+                incomeChart = new Chart(ctx, {
+                    type: 'doughnut',
+                    data: {
+                        labels: ['Diezmo (10%)', 'Ahorro (20%)', 'Gastos (70%)'],
+                        datasets: [{
+                            data: [150, 300, 1050], // Initial data. / Datos iniciales.
+                            backgroundColor: [
+                                'rgba(74, 222, 128, 0.8)',
+                                'rgba(59, 130, 246, 0.8)',
+                                'rgba(251, 191, 36, 0.8)'
+                            ],
+                            borderColor: [
+                                'rgba(34, 197, 94, 1)',
+                                'rgba(37, 99, 235, 1)',
+                                'rgba(245, 158, 11, 1)'
+                            ],
+                            borderWidth: 2
+                        }]
+                    },
+                    options: {
+                        responsive: true,
+                        maintainAspectRatio: false,
+                        plugins: {
+                            legend: {
+                                position: 'bottom', // Position the legend at the bottom. / Posiciona la leyenda en la parte inferior.
+                                labels: {
+                                    padding: 20,
+                                    font: {
+                                        size: 14,
+                                        family: 'Inter'
+                                    }
+                                }
+                            },
+                            tooltip: {
+                                callbacks: {
+                                    label: function(context) {
+                                        // Custom tooltip to show currency format.
+                                        // Tooltip personalizado para mostrar el formato de moneda.
+                                        let label = context.label || '';
+                                        if (label) {
+                                            label += ': ';
+                                        }
+                                        if (context.parsed !== null) {
+                                            label += formatCurrency(context.parsed);
+                                        }
+                                        return label;
+                                    }
+                                }
+                            }
+                        },
+                        cutout: '60%' // Size of the center hole. / Tamaño del agujero central.
+                    }
+                });
+            }
+            
+            // Function to update the chart with new data.
+            // Función para actualizar el gráfico con nuevos datos.
+            function updateChart(diezmo, ahorro, gastos) {
+                if(incomeChart) {
+                    incomeChart.data.datasets[0].data = [diezmo, ahorro, gastos];
+                    incomeChart.update();
+                }
+            }
+
+            // Listen for changes in the income input field.
+            // Escucha los cambios en el campo de entrada de ingresos.
+            incomeInput.addEventListener('input', (e) => {
+                // Parse the input value to a floating-point number.
+                // Analiza el valor de entrada a un número de punto flotante.
+                const income = parseFloat(e.target.value);
+                updateValues(income);
+            });
+
+            // Initial setup when the page loads.
+            // Configuración inicial cuando la página se carga.
+            createChart();
+            updateValues(parseFloat(incomeInput.value));
+
+            // Logic for the tabbed content.
+            // Lógica para el contenido con pestañas.
+            const philosophyTabs = document.querySelectorAll('.philosophy-tab');
+            const philosophyContents = {
+                'content-paz': document.getElementById('content-paz'),
+                'content-deuda': document.getElementById('content-deuda'),
+                'content-resiliencia': document.getElementById('content-resiliencia')
+            };
+
+            philosophyTabs.forEach(tab => {
+                tab.addEventListener('click', () => {
+                    // Remove 'tab-active' class from all tabs.
+                    // Elimina la clase 'tab-active' de todas las pestañas.
+                    philosophyTabs.forEach(t => {
+                        t.classList.remove('tab-active');
+                        t.classList.add('text-gray-500', 'hover:text-gray-700', 'hover:border-gray-300');
+                    });
+                    // Add 'tab-active' class to the clicked tab.
+                    // Agrega la clase 'tab-active' a la pestaña clicada.
+                    tab.classList.add('tab-active');
+                    tab.classList.remove('text-gray-500', 'hover:text-gray-700', 'hover:border-gray-300');
+
+                    // Hide all content sections.
+                    // Oculta todas las secciones de contenido.
+                    Object.values(philosophyContents).forEach(content => content.classList.add('hidden'));
+                    
+                    // Show the content corresponding to the clicked tab.
+                    // Muestra el contenido correspondiente a la pestaña clicada.
+                    const contentId = tab.dataset.content;
+                    if (philosophyContents[contentId]) {
+                        philosophyContents[contentId].classList.remove('hidden');
+                    }
+                });
+            });
+
+            // Smooth scrolling for anchor links.
+            // Desplazamiento suave para los enlaces de anclaje.
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    document.querySelector(this.getAttribute('href')).scrollIntoView({
+                        behavior: 'smooth'
+                    });
+                });
+            });
+        });
+    </script>
+</body>
+</html>
